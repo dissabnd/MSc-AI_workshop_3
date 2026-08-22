@@ -1,0 +1,49 @@
+========================================================================
+CLAUDE PROJECT / CHAT — SHIFT DIAGNOSTIC & WORK-ORDER (Example 2, Level 2)
+Send these as TWO SEQUENTIAL MESSAGES in the SAME chat (so the saved model
+file carries over from the first message to the second). Requires Claude's
+code execution / analysis tool enabled.
+========================================================================
+
+------------------------------------------------------------------------
+MESSAGE 1 — build & validate the soft-sensor (Beat 1)
+Attach: data/D201_purity_training.csv
+------------------------------------------------------------------------
+Attached is 12 months of D-201 historian data: process readings paired with
+the hourly lab purity result (purity_lab_pct_vv).
+
+(1) Build a model that predicts distillate purity from the process readings.
+    Hold out a validation split — don't just report training performance.
+(2) Report the validation metrics (RMSE, MAE, R²) and summarise, in plain
+    language, what range of operating conditions this training data actually
+    covers — including whether any combination of inputs is rare or absent.
+(3) Save the trained model so it can be reused without retraining.
+
+------------------------------------------------------------------------
+MESSAGE 2 — diagnose the shift (Beat 2)
+Attach: data/D201_shift_trend.csv
+        knowledge/SOP_Bioethanol_Distillation.pdf
+        knowledge/Column_Setpoints_Datasheet.pdf
+------------------------------------------------------------------------
+Attached is a full shift of trend data for column D-201 (~103 readings,
+06:00–17:54), the operating SOP (SOP-D201-014), and the setpoint & limits
+datasheet. It does NOT include a purity prediction column.
+
+(1) Use the model you just built to score every reading and add a predicted
+    purity column.
+(2) Diagnose what happened over the shift and when it started. Compare
+    readings against the safe operating limits.
+(3) Assess your own model: does its predicted purity still agree with the
+    hourly lab (AT-207) samples throughout? Flag any point (or growing trend)
+    where you should NOT rely on it, and explain why in terms of what the
+    training data did or didn't cover.
+(4) Give a ranked list of likely causes, each tied to the DATA and the SOP /
+    datasheet clause.
+(5) Produce, as concrete deliverables:
+      - a corrective-action plan,
+      - a HAZOP-style row for your top action,
+      - a 3-line shift-handover note.
+(6) Mark every point where a human must approve before anything changes on
+    the plant. Do NOT recommend any action that exceeds a listed limit.
+
+========================================================================
