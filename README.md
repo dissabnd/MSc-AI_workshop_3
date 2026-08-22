@@ -9,4 +9,5 @@ Demo materials for the AI Workshop 3 sessions, built around the bioethanol disti
 
 ## Scan to open this repo
 
-<img src="module7_shift_diagnostic/assets/qr.png" alt="QR code linking to this GitHub repo" width="200" />
+
+<img src="./assets/qr.png" alt="QR code linking to this GitHub repo" width="200" />
